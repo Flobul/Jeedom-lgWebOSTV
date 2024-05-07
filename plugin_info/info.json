@@ -1,0 +1,12 @@
+{
+	"id": "lgWebOSTV",
+	"name": "LG WebOS TV",
+	"description" : "Plugin pour commander les TVs LG connectées (Modeles WebOS apres 2012). Basé sur le plugin LG TV par Ludovic SARAKHA",
+	"licence": "AGPL",
+	"author": "Benoit Masquelier",
+	"require": "3.0",
+	"category": "multimedia",
+	"hasDependency": true,
+	"hasOwnDeamon": false,
+	"documentation" : "https://github.com/bobox59/lgwebostv/blob/master/doc/#language#/index.asciidoc"
+}
