@@ -37,23 +37,10 @@ class lgWebOSTV extends eqLogic {
         log::add('lgWebOSTV','DEBUG','PIP LIST: ' . $checks);
 
         $checks = exec("pip list | grep ws4py");
-        if (strpos($checks, 'ws4py') !== false) {
-            if ($checks[strpos($checks, 'ws4py') + 9] >= 4) {
-                if ($checks[strpos($checks, 'ws4py') + 11] >= 3) {
-                    log::add('lgWebOSTV', 'DEBUG', 'Vérification de ws4py: OK');
-                } else {
-                    log::add('lgWebOSTV', 'INFO', 'Vérification de ws4py: PB VERSION x.x.3 !' . $checks[13]);
-                    $return['state'] = 'nok';
-                }
-            } else {
-                log::add('lgWebOSTV', 'INFO', 'Vérification de ws4py: PB VERSION x.4.x !' . $checks[11]);
-                $return['state'] = 'nok';
-            }
-        } else {
+        if (strpos($checks, 'ws4py') === false) {
             log::add('lgWebOSTV','INFO','Vérification de ws4py: MANQUANT !');
             $return['state'] = 'nok' ;
-        }
-
+	}
         $checks = exec("pip list | grep wakeonlan");
         if (strpos($checks, 'wakeonlan') !== false) {
             log::add('lgWebOSTV','DEBUG','Vérification de wakeonlan: OK');
