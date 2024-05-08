@@ -49,8 +49,7 @@ function addCmdToTable(_cmd) {
     if (!isset(_cmd)) {
         var _cmd = {configuration: {}};
     }
-  
-
+  console.log(_cmd)
     var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
     tr += '<td class="hidden-xs">'
     tr += '<span class="cmdAttr" data-l1key="id"></span>'
@@ -72,8 +71,8 @@ function addCmdToTable(_cmd) {
     tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>'
     tr += '</td>'
 
-    tr += '<td ><input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request" style="margin-top : 5px;" />';
-    tr += '<textarea class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="parameters" style="margin-top : 5px;" placeholder="{{Parametres (JSON)}}" ></textarea>';
+    tr += '<td><input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request" style="margin-top : 5px;" />';
+    tr += '<textarea class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="parameters" style="margin-top : 5px;" placeholder="{{Paramètres (JSON)}}" ></textarea>';
     tr += '<input type="hidden" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="group">';
 	tr += '<a class="btn btn-default listCmdlgWebOSTV form-control input-sm" style="margin-top : 5px;"><i class="fa fa-list-alt cursor"></i> {{Ajouter une commande prédéfinie}}</a>';
     tr += '</td>';
@@ -115,5 +114,3 @@ function addCmdToTable(_cmd) {
       }
     })
   }
-  
-}
