@@ -25,41 +25,6 @@ class lgWebOSTV extends eqLogic {
 
     /*     * ***********************Methode static*************************** */
 
-    public static function dependancy_info() {
-
-
-        $return = array();
-        $return['log'] = 'lgWebOSTV_update';
-        $return['progress_file'] = jeedom::getTmpFolder('lgWebOSTV') . '/dependance';
-        $return['state'] = 'ok' ;
-
-//      if (exec(system::getCmdSudo() . system::get('cmd_check') . '-E "python\-serial|python\-request|python\-pyudev" | wc -l') >= 3) {
-        log::add('lgWebOSTV','DEBUG','PIP LIST: ' . $checks);
-
-        $checks = exec("pip list | grep ws4py");
-        if (strpos($checks, 'ws4py') === false) {
-            log::add('lgWebOSTV','INFO','Vérification de ws4py: MANQUANT !');
-            $return['state'] = 'nok' ;
-	}
-        $checks = exec("pip list | grep wakeonlan");
-        if (strpos($checks, 'wakeonlan') !== false) {
-            log::add('lgWebOSTV','DEBUG','Vérification de wakeonlan: OK');
-        } else {
-            log::add('lgWebOSTV','INFO','Vérification de wakeonlan: MANQUANT !');
-            $return['state'] = 'nok' ;
-        }
-
-        return $return;
-    }
-
-    public static function dependancy_install()
-    {
-        log::remove(__CLASS__ . '_update');
-        return array('script' => dirname(__FILE__) . '/../../ressources/install.sh ' . jeedom::getTmpFolder('lgWebOSTV') . '/dependance',
-                     'log' => log::getPathToLog(__CLASS__ . '_update'));
-    }
-
-
 
     /*     * *********************Methode d'instance************************* */
 
